@@ -52,29 +52,33 @@ NO
 */
 
 #include <iostream>
-#include <cstring>
 using namespace std;
 
 int main() {
-	char arr[51], stack[51];
-	int num, cnt = -1, index1, index2;
+	int num;
+	int arr[100000], temp[100000];
+	char pp[200000];
+	int arr_cnt = 0, temp_cnt = -1, pp_cnt = 0;
 	cin >> num;
 	for (int i = 0; i < num; i++) {
-		cin >> arr;
-		for (int k = 0; k < strlen(arr); k++) {
-			if (stack[cnt] == '(' && arr[k] == ')') {
-				stack[cnt--] = '\0';
-			}
-			else {
-				stack[++cnt] = arr[k];
-			}
+		cin >> arr[i];
+	}
+
+	for (int i = 1; i <= num; i++) {
+		temp[++temp_cnt] = i;
+		pp[pp_cnt++] = '+';
+		while (temp[temp_cnt] == arr[arr_cnt]) {
+			if (temp_cnt < 0 || arr[arr_cnt] == '\0') break;
+			pp[pp_cnt++] = '-';
+			temp[temp_cnt] = '\0';
+			temp_cnt--;
+			arr_cnt++;
 		}
-		if (strlen(stack) > 0) cout << "NO" << endl;
-		else cout << "YES" << endl;
-		for (int k = 0; k < strlen(stack); k++) {
-			stack[k] = '\0';
-		}
-		cnt = -1;
+	}
+
+	if (temp_cnt > 0) cout << "NO";
+	else {
+		for (int i = 0; i < pp_cnt; i++) cout << pp[i] << "\n";
 	}
 
 	return 0;
