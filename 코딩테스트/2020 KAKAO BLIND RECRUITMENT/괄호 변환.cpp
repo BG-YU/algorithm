@@ -16,7 +16,7 @@ bool fn_chk(string p) {
 
     for (int i = 0; i < p.length(); i++) {
         vect.push_back((char)(p[i]));
-        
+
         if ((char)(p[i]) == '(') cnt++;
         else cnt--;
 
@@ -49,16 +49,14 @@ string solution(string p) {
 
     if (fn_chk(u)) return u + solution(v);
     else {
-        for (int i = 1; i < u.length() - 1; i++) {
-            if ((char)(u[i]) == ')') u[i] = '(';
-            else u[i] = ')';
-            temp += (char)(u[i]);
-        }
-
         answer = "(";
-        answer += temp;
+        answer += solution(v);
         answer += ")";
-        answer += v;
+
+        for (int i = 1; i < u.size() - 1; i++) {
+            if (u[i] == '(') answer += ')';
+            else answer += '(';
+        }
     }
     return answer;
 }
