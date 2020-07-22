@@ -31,8 +31,8 @@ void fn_calc(int* y, int* x, int cnt, int n, int lv) {
 	if (lv == cnt) return;
 
 	int temp = *y;
-	*y = *x;
-	*x = n - temp;
+	*y = *x; // x축을 y축으로 변경
+	*x = n - temp; // y축을 x축으로 변경하면서 숫자 역순으로 뒤집기
 
 	return fn_calc(y, x, cnt, n, lv + 1);
 }
