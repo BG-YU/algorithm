@@ -28,7 +28,6 @@ using namespace std;
 int solution(vector<int> people, int limit) {
     int answer = 0;
     int front = 0, back = people.size() - 1;
-    vector<int> tmp;
 
     sort(people.begin(), people.end());
 
