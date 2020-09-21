@@ -35,6 +35,14 @@ pop 장르는 3,100회 재생되었으며, pop 노래는 다음과 같습니다.
 고유 번호 1: 600회 재생
 따라서 pop 장르의 [4, 1]번 노래를 먼저, classic 장르의 [3, 0]번 노래를 그다음에 수록합니다.
 */
+
+/*
+풀이
+1. 해쉬맵으로 장르별로 플레이횟수를 저장한다.
+2. 만들어진 해쉬맵으로 장르별 플레이 횟수의 총합으로 내림차순 정렬한다.
+3. 장르 안의 곡 하나하나의 플레이횟수기준으로 내림차순 정렬한다.
+4. 장르 마다 2곡씩 뽑아서 결과값에 담는다.
+*/
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -64,15 +72,18 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
     vector<pair<string, node>> v_temp;
     vector<int> answer;
 
+    // 해쉬맵 만들기
     for (int i = 0; i < genres.size(); i++) {
         um[genres[i]].sum += plays[i];
         um[genres[i]].vect.push_back(make_pair(i, plays[i]));
     }
     
+    // 해쉬맵 정렬
     for (pair<string, node> elem : um) v_temp.push_back(elem);
-
     sort(v_temp.begin(), v_temp.end(), compare1);
 
+    // 정렬된 해쉬맵을 다시 곡 기준으로 정렬
+    // 정렬이 완료된 장르는 2곡을 뽑아 결과값에 저장
     for (int i = 0; i < v_temp.size(); i++) {
         sort(v_temp[i].second.vect.begin(), v_temp[i].second.vect.end(), compare2);
 
