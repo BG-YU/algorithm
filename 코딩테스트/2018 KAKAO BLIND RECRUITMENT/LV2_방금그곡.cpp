@@ -154,15 +154,7 @@ string solution(string m, vector<string> musicinfos) {
 }
 
 int main() {
-    //A#, ["13:00,13:02,HAPPY,B#A#"], HAPPY
-    //CDEFGAC, ["12:00,12:06,HELLO,CDEFGA"], (None)
-    //CCB, ["03:00,03:10,FOO,CCB#CCB","04:00,04:08,BAR,ABC"], FOO
-
-    //vector<string> musicinfos = {"03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B"};
-    //vector<string> musicinfos = { "12:00,12:14,HELLO,CDEFGAB", "13:00,13:14,WORLD,ABCDEF" };
-    vector<string> musicinfos = { "13:00,13:02,HAPPY,B#A#" };
-
-    solution("A#", musicinfos);
-
+    vector<string> musicinfos = { "03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B" };
+    solution("CC#BCC#BCC#BCC#B", musicinfos);
     return 0;
 }
