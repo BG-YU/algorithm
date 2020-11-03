@@ -1,0 +1,27 @@
+<script>
+/*https://programmers.co.kr/learn/courses/30/lessons/68935*/
+function solution(n) {
+    const arr = [];
+    let answer = 0;
+    let temp = 0;
+    let cnt = 0;
+
+    while(true) {
+        if(n <= 0) break;
+        temp = n % 3;
+        temp = Math.floor(temp);
+        n /= 3;
+        n = Math.floor(n);
+        arr.unshift(temp);
+    }
+
+    for(let i = 0; i < arr.length; i++) {
+        temp = arr[i] * Math.pow(3, i);
+        answer += temp;
+    }
+
+    return answer;
+}
+
+solution(45);
+</script>
