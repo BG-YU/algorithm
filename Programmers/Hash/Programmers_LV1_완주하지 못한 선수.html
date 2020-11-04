@@ -1,0 +1,25 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/42576
+*/
+function solution(participant, completion) {
+    let map = new Map();
+    let answer = '';
+
+    for(let v of participant) map.set(v, (map.get(v) || 0) + 1);
+    for(let v of completion) map.set(v, map.get(v) - 1);
+    for(let [k, v] of map) {
+        if(v > 0) {
+            answer = k;
+            break;
+        }
+    }
+
+    return answer;
+}
+
+const participant = ['mislav', 'stanko', 'mislav', 'ana'];
+const completion = ['stanko', 'ana', 'mislav'];
+solution(participant, completion);
+</script>
+
