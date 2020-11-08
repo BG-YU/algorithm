@@ -1,0 +1,15 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12915
+*/
+function solution(strings, n) {
+    const answer = strings.sort((a,b)=>{
+        if(a[n] > b[n]) return 1;
+        if(a[n] < b[n]) return -1;
+        return a > b ? 1 : -1;
+    });
+    return answer;
+}
+const arr = ['abce', 'abcd', 'cdx'];
+solution(arr, 1);
+</script>
