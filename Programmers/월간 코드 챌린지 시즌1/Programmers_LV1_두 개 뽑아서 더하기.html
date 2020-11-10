@@ -1,0 +1,20 @@
+<script>
+    /*
+    https://programmers.co.kr/learn/courses/30/lessons/68644
+    */
+    function solution(numbers) {
+        let set = new Set;
+        let answer = [];
+        for (let [i, v1] of numbers.entries()) {
+            for (let [k, v2] of numbers.entries()) {
+                if (i === k) continue;
+                set.add(v1 + v2);
+            }
+        }
+        for (let v of set) answer.push(v);
+        answer.sort((a, b) => { return a - b });
+        return answer;
+    }
+    const numbers = [5, 0, 2, 7];
+    solution(numbers);
+</script>
