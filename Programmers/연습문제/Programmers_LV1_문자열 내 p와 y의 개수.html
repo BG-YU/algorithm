@@ -1,0 +1,31 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12916
+*/
+function solution(s){
+    var answer = true;
+    
+    console.log(s.toUpperCase().split('P'));
+
+    const arr1 = s.split('').filter((v)=>{
+        if(v.toUpperCase() === 'P') return v;
+    });
+
+    const arr2 = s.split('').filter((v)=>{
+        if(v.toUpperCase() === 'Y') return v;
+    });
+    answer = arr1.length === arr2.length ? true : false;
+    return answer;
+
+    // 아래 reduce 공부 필요
+    // const sArr = s.split('');
+    // const {p, y} = sArr.reduce((acc, c) => {
+    //     if (c.toLowerCase() === 'p') acc.p += 1;
+    //     else if (c.toLowerCase() === 'y') acc.y += 1;
+    //     return acc;
+    // }, {p: 0, y: 0});
+
+    // return (p === y);
+}
+solution('pPoooyY');
+</script>
