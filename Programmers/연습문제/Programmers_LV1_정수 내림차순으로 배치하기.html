@@ -1,0 +1,11 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12933
+*/
+function solution(n) {
+    var answer = (n + '').split('').sort((a,b)=>{return b-a;}).join('');
+    return +answer;
+}
+
+solution(118372);
+</script>
