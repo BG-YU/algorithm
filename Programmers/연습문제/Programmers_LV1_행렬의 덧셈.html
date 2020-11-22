@@ -1,0 +1,24 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12950
+*/
+function solution(arr1, arr2) {
+    // var answer = arr1;
+    // for(let i = 0; i < arr1.length; i++){
+    //     for(let k = 0; k < arr1[i].length; k++){
+    //         answer[i][k] = arr1[i][k] +  arr2[i][k];
+    //     }
+    // }
+    var answer;
+    answer = arr1.map((v1, i1) => {
+        return v1.map((v2, i2) => {
+            v2 += arr2[i1][i2];
+            return v2;
+        })
+    });
+    return answer;
+}
+let arr1 = [[1,2],[2,3]];
+let arr2 = [[3,4],[5,6]];
+solution(arr1, arr2);
+</script>
