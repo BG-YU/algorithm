@@ -1,0 +1,23 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12926
+*/
+function solution(s, n) {
+    const answer = s.split('').map((v, i)=>{
+        if(v == ' ') return v;
+
+        if (String.fromCharCode(v.toLowerCase().charCodeAt() + n) > 'z') {
+            if (v >= 'a' && v <= 'z') {
+                return String.fromCharCode(((v.charCodeAt() - 1 + n) - 'z'.charCodeAt()) + 'a'.charCodeAt());
+            } else if (v >= 'A' && v <= 'Z') {
+                return String.fromCharCode(((v.charCodeAt() - 1 + n) - 'Z'.charCodeAt()) + 'A'.charCodeAt());
+            }
+        } else {
+            return String.fromCharCode(v.charCodeAt() + n);
+        }
+    }).join('');
+    
+    return answer;
+}
+solution('Z', 20);
+</script>
