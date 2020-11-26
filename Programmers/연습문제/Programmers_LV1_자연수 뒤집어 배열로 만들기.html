@@ -1,0 +1,13 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12932
+*/
+function solution(n) {
+    var answer = (n+'').split('').reverse().reduce((acc, v)=>{
+        acc.push(parseInt(v));
+        return acc;
+    }, []);
+    return answer;
+}
+solution(12345);
+</script>
