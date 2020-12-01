@@ -1,0 +1,13 @@
+<script>
+/*
+https://programmers.co.kr/learn/courses/30/lessons/12934
+*/
+function solution(n) {
+    let value = 0;
+    for(var i = 0 ; i * i < n; i++){
+        value++;
+    }
+    return (value*value == n ) ? Math.pow(value+1,2) : -1;
+}
+console.log(solution(121));
+</script>
