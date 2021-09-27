@@ -17,7 +17,6 @@ def dfs(lim, lv, orders, sett, idx):
         dfs(lim, lv+1, orders, sett, i+1)
         del sett[len(sett)-1]
 
-
 def solution(orders, course):
     answer = []
     global course_map
