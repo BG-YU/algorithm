@@ -41,3 +41,25 @@ def solution(orders, course):
     answer = sorted(answer)
 
     return answer
+
+#########################################
+### itretools, collections를 활용하여 풀이###
+#########################################
+
+# import itertools
+# import collections
+
+# def solution(orders, course):
+#     answer = []
+
+#     for c in course:
+#         temp = []
+#         for o in orders:
+#             temp += itertools.combinations(sorted(o), c)
+
+#         temp = collections.Counter(temp).most_common()
+#         answer += [''.join(x[0]) for x in temp if x[1] >= temp[0][1]]
+
+#     return sorted(answer)
+
+# solution(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"], [2,3,4])
